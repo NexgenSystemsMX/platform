@@ -5,7 +5,7 @@ name: Build Custom Frontend
 
 on:
   push:
-    branches: [feature/basemixin-tasktype-v0.7.330]
+    branches: [feature/basemixin-tasktype-v0.7.330, feature/basemixin-tasktype-v0.7.326]
   workflow_dispatch:
     inputs:
       tag:

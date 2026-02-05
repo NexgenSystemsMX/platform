@@ -24,7 +24,7 @@ function main() {
     version = fs.readFileSync(versionFilePath, 'utf8').trim()
   } catch (error) {
     // Fallback only if file doesn't exist
-    version = '"0.7.330"'
+    version = '"0.7.326"'
   }
   console.log(version)
 }
