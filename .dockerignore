@@ -19,11 +19,10 @@
 **/.rush
 
 # Build artifacts (will be generated in container)
-**/lib
-**/types
-**/dist
-**/bundle
+# Note: Be careful not to exclude source directories named lib/types/dist
+# Only exclude actual build output directories
 **/*.tsbuildinfo
+**/node_modules/.cache
 
 # Test snapshots and data
 **/sanity-ws
