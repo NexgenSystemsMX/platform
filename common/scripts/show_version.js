@@ -18,22 +18,16 @@ const path = require('path')
 const exec = require('child_process').exec
 
 function main() {
-  exec('git describe --tags --abbrev=0', (err, stdout) => {
-    if (err !== null) {
-      console.log('"0.6.0"')
-      return
-    }
-    // Take version from file
-    let version
-    try {
-      const versionFilePath = path.resolve(__dirname, 'version.txt')
-      version = fs.readFileSync(versionFilePath, 'utf8').trim()
-    } catch (error) {
-      version = '"0.6.0"'
-    }
-
-    console.log(version)
-  })
+  // Read version directly from version.txt file (no git tag dependency)
+  let version
+  try {
+    const versionFilePath = path.resolve(__dirname, 'version.txt')
+    version = fs.readFileSync(versionFilePath, 'utf8').trim()
+  } catch (error) {
+    // Fallback only if file doesn't exist
+    version = '"0.6.0"'
+  }
+  console.log(version)
 }
 
 main()
